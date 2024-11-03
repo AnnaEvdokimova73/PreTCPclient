@@ -166,7 +166,7 @@ void TCPclient::ProcessingData(ServiceHeader header, QDataStream &stream)
         break;
     }
     case GET_SIZE:
-
+        stream.setDevice(0);
         break;
     case GET_STAT:
     {
@@ -184,6 +184,7 @@ void TCPclient::ProcessingData(ServiceHeader header, QDataStream &stream)
     case SET_DATA:
     case CLEAR_DATA:
     default:
+        stream.setDevice(0);
         return;
 
     }
